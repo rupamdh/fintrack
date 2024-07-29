@@ -1,0 +1,338 @@
+$black: #000;
+$white: #fff;
+$blue: #195192;
+$deep-blue: #0d294a;
+$sky: #2368b8;
+$red: #c4111a;
+$gray: #656565;
+$fontawesome: 'Font Awesome 6 Pro';
+$poppins: "Poppins", sans-serif;
+
+:root{
+    --sidebar-width: 280px;
+    --menu-font-size: 15px;
+    --menu-item-gap: 15px;
+    --shop-btn-font-size: 16px;
+    --gap: 10px;
+    @media (min-width:1366px) {
+        --sidebar-width: 300px;
+        --menu-font-size: 16px;
+        --menu-item-gap: 20px;
+    }
+    @media (min-width:1440px) {
+        --menu-font-size: 17px;
+        --menu-item-gap: 20px;
+         --gap: 15px;
+    }
+    @media (min-width:1600px) {
+        --sidebar-width: 330px;
+        --menu-item-gap: 35px;
+         --gap: 20px;
+    }
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    color: $gray;
+    font-family: $poppins;
+    font-size: 16px;
+    color: $gray;
+    overflow-x: hidden;
+}
+p{
+    color: $gray;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+a{
+    text-decoration: none;
+    color: $blue;
+    &:hover{
+        color: $black;
+    }
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h2{
+    font-size: 45px;
+}
+h3{
+    font-size: 42px;
+}
+h4{
+    font-size: 38px;
+}
+h5{
+    font-size: 32px;
+}
+h6{
+    font-size: 26px;
+}
+h2, h3, h4, h5, h6{
+    font-family: $poppins;
+    line-height: 1.2;
+    color: $blue;
+}
+.container{
+    max-width: 1200px !important;
+}
+.big-text{
+    font-size: 26px;
+    color: $deep-blue;
+    font-weight: 300;
+}
+
+.read-more a{
+    color: $sky;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    &::after{
+        content: '\f061';
+        font-family: $fontawesome;
+        font-weight: 300;
+        margin-left: 10px;
+        transition: all .5s ease;
+    }
+    &:hover{
+        color: $red;
+        &::after{
+            margin-left: 20px;
+        }
+    }
+}
+
+/*========================================= Common End ============================================*/
+
+/*========================================= Header Start ============================================*/
+.logo{
+    text-align: center;
+    padding: 10px 0;
+    border-right: 1px solid #d5d5d5;
+    min-width: var(--sidebar-width);
+}
+.head-middle{
+    padding: 0 var(--gap);
+}
+.main-menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--menu-item-gap);
+    > li{
+        > a{
+            color: $deep-blue;
+            font-weight: 500;
+            font-size: var(--menu-font-size);
+            padding: 29px 0;
+            position: relative;
+            &::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background-color: $red;
+                transition: all .5s ease;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            &:hover{
+                color: $sky;
+                &::after{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.head-right{
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    padding-right: var(--gap);
+}
+.head-search{
+    border: none;
+    background-color: $sky;
+    width: 55px;
+    height: 55px;
+    transition: all .5s ease-in;
+    &:hover{
+        background-color: $blue;
+    }
+}
+.shop-btn{
+    border: none;
+    background-color: $red;
+    height: 55px;
+    color: $white;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    span.icn{
+        height: 100%;
+        display: inline-block;
+        padding: 0 13px;
+        border-left: 1px solid #d8242d;
+        line-height: 55px;
+        margin-left: 15px;
+    }
+    img{
+        margin-right: 5px;
+    }
+    span.text{
+        @media screen and (max-width:1500px){
+            font-size: 14px;
+        }
+        @media screen and (max-width:1279px){
+            display: none;
+        }
+        @media screen and (max-width:1366px){
+            font-size: 14px;
+        }
+        
+        
+    }
+}
+.menu-btn{
+    display: none;
+}
+@media (max-width:1200px){
+    .logo{
+        border-right: none;
+        text-align: left;
+        padding: 10px var(--gap);
+    }
+    .main-nav{
+        display: none;
+    }
+    .menu-btn{
+        display: block;
+        background-color: $deep-blue;
+        color: $white;
+        border: none;
+        font-size: 30px;
+        width: 55px;
+        height: 55px;
+    }
+    .head-right{
+        display: none !important;
+    }
+}
+/*========================================= Header End ============================================*/
+
+/*================================================= Footer ==========================================*/
+.footer{
+    background-color: $deep-blue;
+    padding: 90px 0;
+}
+.social-foot{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+        a{
+            width: 35px;
+            height: 35px;
+            background-color: $red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            transition: all .5s ease;
+            &:hover{
+                color: $red;
+                background-color: $white;
+            }
+        }
+    }
+}
+.copyright{
+    color: $white;
+
+}
+.sitemap-link{
+    letter-spacing: 2px;
+    color: #8ebaee;
+    font-weight: 500;
+    display: inline-block;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #8ebaee;
+    &:hover{
+        color: $red;
+        border-bottom: 1px solid $red;
+    }
+}
+.foot-title{
+    color: $white;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.foot-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+        margin-bottom: 10px;
+        a{
+            color: $white;
+            &:hover{
+                color: $red;
+            }
+        }
+    }
+}
+/*================================================= Footer End ==========================================*/
+
+.sidebar-menu{
+    min-width: var(--sidebar-width);
+    background-color: $sky;
+    min-height: 300px;
+    height: 100%;
+}
+.home-banner{
+    min-width: calc(100vw - var(--sidebar-width));
+    background-image: url(../images/bannerbg.jpg);
+    background-position: top left;
+    height: 100%;
+    min-height: 800px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    .ban-content{
+        position: relative;
+        z-index: 1;
+        max-width: 535px;
+    }
+    h1{
+        font-size: 100px;
+        font-weight: 700;
+        color: $blue;
+        line-height: 1;
+    }
+    h4{
+        color: $red;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .gary-img{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 800px;
+    }
+}
