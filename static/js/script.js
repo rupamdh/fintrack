@@ -1,41 +1,41 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
 
-    jQuery(window).scroll(function () {
+    $(window).scroll(function () {
 
-        if (jQuery(this).scrollTop() > 50) {
-            jQuery('#header').addClass('sticky');
+        if ($(this).scrollTop() > 50) {
+            $('#header').addClass('sticky');
         } else {
-            jQuery('#header').removeClass('sticky');
+            $('#header').removeClass('sticky');
         }
 
-        if (jQuery(this).scrollTop() > 200) {
-            jQuery('#back-to-top').addClass('show');
+        if ($(this).scrollTop() > 200) {
+            $('#back-to-top').addClass('show');
         } else {
-            jQuery('#back-to-top').removeClass('show');
+            $('#back-to-top').removeClass('show');
         }
     });
 
-    jQuery('.back-to-top').click(function () {
-        jQuery('html, body').animate({ scrollTop: 0 }, '300');
+    $('.back-to-top').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, '300');
     });
 
 
 
-    jQuery('.menu-btn').click(function (e) {
-        jQuery('.menu-container').toggleClass('open');
+    $('.menu-btn').click(function (e) {
+        $('.menu-container').toggleClass('open');
     });
 
-    jQuery('.menu-close').click(function () {
-        jQuery('.menu-container').removeClass('open');
+    $('.menu-close').click(function () {
+        $('.menu-container').removeClass('open');
     });
 
-    jQuery(".sid-menu li.menu-item-has-children").append('<div class="sub-btn"><i class="fa-sharp fa-light fa-angle-right"></i></div>');
+    $(".sid-menu li.menu-item-has-children").append('<div class="sub-btn"><i class="fa-sharp fa-light fa-angle-right"></i></div>');
 
-    jQuery('.sub-btn').click(function () {
-        jQuery(this).prev().slideToggle();
-        jQuery(this).parent().siblings().find('.sub-menu').slideUp();
-        jQuery(this).parent().siblings().removeClass('open');
-        jQuery(this).parent().addClass('open');
+    $('.sub-btn').click(function () {
+        $(this).prev().slideToggle();
+        $(this).parent().siblings().find('.sub-menu').slideUp();
+        $(this).parent().siblings().removeClass('open');
+        $(this).parent().addClass('open');
     });
 
     // const swiper = new Swiper('.locations', {

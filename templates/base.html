@@ -4,35 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> FinTrack</title>
+    <title>FinTrack</title>
     <link rel="icon" type="image/x-icon" href="/static/assets/logo/fav.png">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/js/jquery.js"></script>
 </head>
 
-<body>
-    <header>
+<body class="bg-[#fefffb]">
+    <header class="px-4 py-3">
         <div class="container mx-auto">
-            <div class="flex justify-between">
-                <div></div>
+            <div class="flex justify-between items-center">
                 <div>
-                    <h6>Hi, User</h6>
+                    <h1 class="text-2xl text-black">Welcome, <br> <span class="font-semibold">{{ user.first_name }} {{ user.last_name }}</span></h1>
+                </div>
+                <div>
+                    <a href="#"><img src="/static/images/avatar.jpg" alt="" class="w-10 h-10 rounded-full"></a>
                 </div>
             </div>
         </div>
     </header>
     
         
+    <main class="main" id="main">
+        <div class="page-content px-4 py-4">
+            {% block content %}
 
-    {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+    
         
-    {% endblock content %}
-        
-
+    <footer>
+        <div class="footer">
+            <ul class="flex justify-between">
+                
+                {% with request.resolver_match.url_name as url %}
+                    <li><a href="#"><i class="fa-light fa-wallet"></i></a></li>
+                    <li {% if url == 'budget' %}class="active"{% endif %}><a href="{% url 'budget' %}"><i class="fa-light fa-money-check-dollar-pen"></i></a></li>
+                    <li {% if url == 'home' %}class="active"{% endif %}><a href="{% url 'home' %}"><i class="fa-light fa-house"></i></a></li>
+                    <li><a href="#"><i class="fa-light fa-money-check-dollar"></i></a></li>
+                    <li><a href="#"><i class="fa-light fa-user"></i></a></li>
+                {% endwith %}
+            </ul>
+        </div>
+    </footer>
     <script src="/static/js/script.js"></script>
    
 </body>
