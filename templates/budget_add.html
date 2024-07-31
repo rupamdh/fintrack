@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    {% comment %} <form method="post">
+    <form method="post">
         {% csrf_token %}
-        <input type="text" name="name" placeholder="Enter Budget Title">
-        <input type="number" placeholder="1200" name="amount">
-
-        <button type="submit">Submit</button>
-    </form> {% endcomment %}
+        {{ form }}
+        <button type="submit">Add</button>
+    </form>
 {% endblock content %}
     

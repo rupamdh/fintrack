@@ -13,3 +13,8 @@ class SpendingForm(forms.ModelForm):
         }
 
         
+class BudgetAddForm(forms.ModelForm):
+    class Meta:
+        model = Budget
+        fields = '__all__'
+        exclude = ('user', )
