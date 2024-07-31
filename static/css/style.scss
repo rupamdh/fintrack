@@ -97,3 +97,18 @@ h2, h3, h4, h5{
         }
     }
 }
+.bgt-box{
+    position: relative;
+    overflow: hidden;
+    a{
+        position: relative;
+        z-index: 1;
+    }
+    .bgt-after{
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: $green, $alpha: 0.3);
+    }
+}

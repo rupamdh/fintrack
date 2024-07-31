@@ -83,4 +83,20 @@ h2, h3, h4, h5 {
 }
 .footer ul li.active a i::before {
   font-weight: 600;
+}
+
+.bgt-box {
+  position: relative;
+  overflow: hidden;
+}
+.bgt-box a {
+  position: relative;
+  z-index: 1;
+}
+.bgt-box .bgt-after {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(202, 243, 34, 0.3);
 }/*# sourceMappingURL=style.css.map */
