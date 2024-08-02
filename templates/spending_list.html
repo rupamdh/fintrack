@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load core_tags %}
+
+{% block content %}
+
+    <div class="spendings bg-white rounded-[35px] py-4 shadow shadow-gray-200">
+        {% for spending in spendings %}
+            <div class="flex justify-between border-b border-b-gray-400 py-2 px-5 last:border-0">
+                <div>
+                    <h6 class="text-black">{{ spending.budget }}</h6>
+                    <span class="text-xs">{{ spending.note }}</span>
+                </div>
+                <div class="text-end">
+                    <h6 class="text-black">{{ spending.amount }}</h6>
+                    <span class="text-xs">{{ spending.created_at|get_date }}</span>
+                </div>
+            </div>
+        {% endfor %}
+            
+    </div>
+{% endblock content %}
+    
+    

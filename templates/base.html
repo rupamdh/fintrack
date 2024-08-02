@@ -11,28 +11,21 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/js/jquery.js"></script>
 </head>
 
-<body class="bg-[#fefffb]">
-    <header class="px-4 py-3">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h1 class="text-2xl text-black">Welcome, <br> <span class="font-semibold">{{ user.first_name }} {{ user.last_name }}</span></h1>
-                </div>
-                <div>
-                    <a href="#"><img src="/static/images/avatar.jpg" alt="" class="w-10 h-10 rounded-full"></a>
-                </div>
-            </div>
-        </div>
-    </header>
+<body>
     
+    {% block header %}
+        
+    {% endblock header %}
+        
+    <!-- https://www.figma.com/design/6I9OQ48h4rqf8jQiUl6eK5/Montra---Expense-Tracker-UI-Kit-(Community)?node-id=329-26&t=w7HIsA5WTvRqskZf-0 -->
         
     <main class="main" id="main">
-        <div class="page-content px-4 py-4">
+        <div class="page-content">
             {% block content %}
 
             {% endblock content %}
@@ -40,20 +33,11 @@
     </main>
     
         
-    <footer class="pb-[86px]">
-        <div class="footer">
-            <ul class="flex justify-between">
-                
-                {% with request.resolver_match.url_name as url %}
-                    <li><a href="#"><i class="fa-light fa-wallet"></i></a></li>
-                    <li {% if url == 'budget' %}class="active"{% endif %}><a href="{% url 'budget' %}"><i class="fa-light fa-money-check-dollar-pen"></i></a></li>
-                    <li {% if url == 'home' %}class="active"{% endif %}><a href="{% url 'home' %}"><i class="fa-light fa-house"></i></a></li>
-                    <li><a href="#"><i class="fa-light fa-money-check-dollar"></i></a></li>
-                    <li><a href="#"><i class="fa-light fa-user"></i></a></li>
-                {% endwith %}
-            </ul>
-        </div>
-    </footer>
+    
+    {% block footer %}
+        
+    {% endblock footer %}
+        
     <script src="/static/js/script.js"></script>
    
 </body>

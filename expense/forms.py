@@ -8,8 +8,8 @@ class SpendingForm(forms.ModelForm):
         
         widgets = {
             # 'budget': forms.Select(choices=Budget.objects.all().values_list('id', 'name')),
-            'amount': forms.NumberInput(attrs={'step': '1'}),
-            'note': forms.Textarea(attrs={'rows': 2}),
+            'amount': forms.NumberInput(attrs={'step': '1', 'placeholder': '0', 'autofocus':''}),
+            'note': forms.TextInput(attrs={'placeholder': 'Espense Note'}),
         }
 
         

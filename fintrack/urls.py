@@ -25,4 +25,6 @@ urlpatterns = [
     path('budget/add/', add_budget, name='add-budget'),
     path('budget/', view_budgets, name='budget'),
     path('spending/add/', add_spending, name='add-spending'),
+    path('spending/success/', spending_add_success, name='spending-success'),
+    path('spending/', view_spendings, name='spending'),
 ]

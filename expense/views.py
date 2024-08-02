@@ -3,8 +3,11 @@ from .models import Budget, Spending
 from django.contrib.auth import get_user_model
 from .forms import SpendingForm, BudgetAddForm
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 User = get_user_model()
+
+c_m = datetime.now().month
 # Create your views here.
 @login_required
 def add_budget(request):
@@ -36,8 +39,24 @@ def add_spending(request):
             spending = form.save(commit=False)
             spending.user = request.user
             spending.save()
-            return redirect('home')
+            return redirect('spending-success')
     else:
         form = SpendingForm()
 
-    return render(request, 'spending_add.html', {'form' : form})
+    context = {
+        'form' : form,
+    }
+    return render(request, 'spending_add.html', context)
+
+@login_required
+def spending_add_success(request):
+    return render(request,'spending_add_success.html')
+
+
+@login_required
+def view_spendings(request):
+    spendings = Spending.objects.filter(user=request.user, created_at__month=c_m).order_by('-created_at')
+    context = {
+        'spendings' : spendings
+    }
+    return render(request, 'spending_list.html', context)

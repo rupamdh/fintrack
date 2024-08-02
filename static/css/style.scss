@@ -1,114 +1,105 @@
 $black: #000;
 $white: #fff;
-$blue: #195192;
-$deep-blue: #0d294a;
-$sky: #2368b8;
-$red: #c4111a;
-$gray: #656565;
-$green: #caf322;
+$primary: #7F3DFF;
 $fontawesome: 'Font Awesome 6 Pro';
-$sora: "Sora", sans-serif;
-$poppins: "Poppins", sans-serif;
-
+$inter: "Inter", sans-serif;
 body{
-    margin: 0;
-    padding: 0;
-    color: $gray;
-    font-family: $poppins;
-    font-size: 16px;
-    color: $gray;
-    overflow-x: hidden;
+    font-family: $inter;
 }
-p{
-    color: $gray;
-    &:last-child{
-        margin-bottom: 0;
-    }
-}
-a{
-    text-decoration: none;
-    color: $blue;
-    &:hover{
-        color: $black;
-    }
-}
-img{
-    max-width: 100%;
-    height: auto;
-}
-h2{
-    font-size: 45px;
-}
-h3{
-    font-size: 42px;
-}
-h4{
-    font-size: 38px;
-}
-h5{
-    font-size: 32px;
-}
-h6{
-    font-size: 26px;
-    font-family: $poppins;
-}
-h2, h3, h4, h5{
-    font-family: $sora;
-    line-height: 1.2;
-}
+
 
 
 /*========================================= Common End ============================================*/
 
 /*========================================= Header Start ============================================*/
 .footer{
-    width: calc(100% - 32px);
     position: fixed;
-    left: 16px;
-    bottom: 16px;
-    background-color: $white;
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: 0 0 7px #ececec;
-    padding: 10px 25px;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 24px;
+    background-color: #F4F4F4;
     ul{
         li{
             a{
-                display: inline-block;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                font-size: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            &.active{
-                a{
-                    background-color: $black;
-                    color: $green;
-                    i{
-                        &::before{
-                            font-weight: 600;
-                        }
-                    }
-                }
+                font-size: 25px;
             }
         }
     }
-}
-.bgt-box{
-    position: relative;
-    overflow: hidden;
-    a{
-        position: relative;
-        z-index: 1;
+    .add{
+        background-color: $white;
+        padding: 8px;
+        border-radius: 50%;
+        margin-top: -30px;
+        a{
+            display: flex;
+            width: 50px;
+            height: 50px;
+            background-color: $primary;
+            color: $white;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 25px;
+        }
     }
-    .bgt-after{
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba($color: $green, $alpha: 0.3);
+}
+
+.dash-box{
+    background-image: linear-gradient(to bottom, #FFF6E5, #F8EDD8);
+}
+.head-month select{
+    background-color: transparent;
+    border: 1px solid #F1F1FA;
+    border-radius: 35px;
+}
+
+.spd-form{
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+        background-color: transparent;
+        color: $white;
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 1;
+        outline: none;
+        max-width: 300px;
+        &::placeholder{
+            color: $white;
+            opacity: 1;
+        }
+    }
+    select{
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        appearance: none;
+        border: 1px solid #F1F1FA;
+        border-radius: 15px;
+        background-image: url(../images/arrow-down-2.svg);
+        background-repeat: no-repeat;
+        background-position: calc(100% - 10px) center;
+        padding: 0 15px;
+        margin-bottom: 20px;
+        color: #91919F;
+        font-weight: light;
+    }
+    input[type=text]{
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        outline: none;
+        border: 1px solid #F1F1FA;
+        border-radius: 15px;
+        padding: 0 15px;
+        margin-bottom: 20px;
+        color: #91919F;
+        font-weight: light;
     }
 }

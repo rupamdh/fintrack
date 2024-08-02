@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <div class="bg-white p-5 rounded-[28px] shadow shadow-gray-200 mt-5">
-        <h6 class="text-black mb-3">Total Spendings</h6>
-        <h2 class="text-3xl text-black font-semibold">₹ 200</h2>
+{% block header %}
+    <div class="px-4 py-5 dash-box">
+        <div class="flex justify-between items-center">
+            <div></div>
+            <div class="head-month">
+                <select name="" id="">
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                </select>
+            </div>
+            <div class="avatar border border-violet-800 rounded-full p-[2px]">
+                <img src="/static/images/avatar.jpg" alt="" class="w-10 h-10 object-cover rounded-full">
+            </div>
+        </div>
+        <div>
+            <h6 class="text-[#91919F] text-[14px] font-medium text-center mb-2">Total Expense</h6>
+            <h2 class="text-black text-4xl font-semibold text-center">$9400</h2>
+        </div>
+
     </div>
+{% endblock header %}
+
+{% block content %}
+    
+
 {% endblock content %}
+    
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock footer %}
     

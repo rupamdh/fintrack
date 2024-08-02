@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
 
-        <button type="submit">Submit</button>
-    </form>
+{% block content %}
+    <div class="h-screen bg-[#FD3C4A]">
+        <div class="flex justify-between px-5 py-5">
+            <button><img src="/static/images/arrow-left.svg" alt=""></button>
+            <h6 class="text-white text-[18px] font-medium">Add Expense</h6>
+            <div></div>
+        </div>
+        
+        <div class="spd-form fixed bottom-0 z-30">
+            <form method="post">
+                {% csrf_token %}
+                <div class="px-5">
+                    <h6 class="text-[#E3E5E5] text-[18px] font-medium">How much?</h6>
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-white text-6xl font-semibold leading-none">₹</h2>
+                        {{ form.amount }}
+                    </div>
+                </div>
+                <div class="px-5 py-10 mt-8 bg-white rounded-ss-[35px] rounded-tr-[35px]">
+                    {{ form.budget }}
+                    {{ form.note }}
+                    <button type="submit" class="w-full h-14 rounded-2xl bg-violet-500 text-white">Add</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
 {% endblock content %}
     
