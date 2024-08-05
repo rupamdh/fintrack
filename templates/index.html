@@ -1,31 +1,42 @@
 {% extends 'base.html' %}
+{% load core_tags %}
 
-{% block header %}
-    <div class="px-4 py-5 dash-box">
-        <div class="flex justify-between items-center">
-            <div></div>
-            <div class="head-month">
-                <select name="" id="">
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                </select>
+{% block content %}
+    <div class="h-screen">
+        <div class="flex justify-between items-center px-3 py-5">
+            <div>
+                <h6 class="italic">Welcome,</h6>
+                <h2 class="text-2xl font-semibold">{{ user.first_name }} {{ user.last_name }}</h2>
             </div>
             <div class="avatar border border-violet-800 rounded-full p-[2px]">
                 <img src="/static/images/avatar.jpg" alt="" class="w-10 h-10 object-cover rounded-full">
             </div>
         </div>
-        <div>
-            <h6 class="text-[#91919F] text-[14px] font-medium text-center mb-2">Total Expense</h6>
-            <h2 class="text-black text-4xl font-semibold text-center">$9400</h2>
+        <div class="px-3">
+            <div class="p-5 shadow-md shadow-gray-400 rounded-2xl">
+                <div class="text-end">
+                    <h5 class="text-[16px] mb-5 font-medium">{{ today }}</h5>
+                </div>
+                <div class="flex justify-between">
+                   <div>
+                        <p class="text-gray-500 text-sm">Total Expenses</p>
+                        <h2 class="text-2xl font-bold">₹ {{ total_spent_month }}</h2>
+                   </div>
+                   <div class="text-end">
+                        <p class="text-gray-500 text-sm">Today Expenses</p>
+                        <h2 class="text-2xl font-bold">₹ {{ total_spent_today }}</h2>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex gap-5 justify-center mt-5">
+            <button class="tim-btn text-violet-600" id="td">Today</button>
+            <button class="tim-btn" id="wk">Week</button>
+            <button class="tim-btn" id="mn">Month</button>
         </div>
 
     </div>
-{% endblock header %}
-
-{% block content %}
-    
 
 {% endblock content %}
     
@@ -33,4 +44,31 @@
 {% block footer %}
     {% include 'footer.html' %}
 {% endblock footer %}
+    
+
+{% block extrascript %}
+    <script>
+        $(document).ready(function(){
+            $('.tim-btn').click(function(e){
+                e.preventDefault();
+                var filter = $(this).attr('id');
+                $.ajax({
+                    url: '/get-timely-expense/',
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        filter: filter,
+                    },
+                    success: function(response){
+                        
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                })
+            })
+
+        });
+    </script>
+{% endblock extrascript %}
     

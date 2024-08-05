@@ -20,6 +20,11 @@ body{
     background-color: #F4F4F4;
     ul{
         li{
+            &.active{
+                a{
+                    color: $primary;
+                }
+            }
             a{
                 font-size: 25px;
             }

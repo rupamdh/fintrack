@@ -27,4 +27,6 @@ urlpatterns = [
     path('spending/add/', add_spending, name='add-spending'),
     path('spending/success/', spending_add_success, name='spending-success'),
     path('spending/', view_spendings, name='spending'),
+
+    path('get-timely-expense/', get_timely_expense, name='timely-expense'),
 ]

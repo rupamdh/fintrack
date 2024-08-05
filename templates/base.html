@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/static/js/jquery.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         
     <!-- https://www.figma.com/design/6I9OQ48h4rqf8jQiUl6eK5/Montra---Expense-Tracker-UI-Kit-(Community)?node-id=329-26&t=w7HIsA5WTvRqskZf-0 -->
         
-    <main class="main" id="main">
+    <main class="main pb-12" id="main">
         <div class="page-content">
             {% block content %}
 
@@ -39,7 +39,9 @@
     {% endblock footer %}
         
     <script src="/static/js/script.js"></script>
-   
+    {% block extrascript %}
+    
+    {% endblock extrascript %}
 </body>
 
 </html>

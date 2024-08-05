@@ -11,6 +11,9 @@ body {
   padding: 5px 24px;
   background-color: #F4F4F4;
 }
+.footer ul li.active a {
+  color: #7F3DFF;
+}
 .footer ul li a {
   font-size: 25px;
 }

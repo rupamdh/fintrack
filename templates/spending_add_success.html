@@ -2,7 +2,16 @@
 
 
 {% block content %}
-    <div class="bg-[#00A86B] h-screen">
-
+    <div class="h-screen flex items-center justify-center">
+        <div class="text-center">
+            <img src="/static/images/checked.png" alt="" class="max-w-20 mb-3 mx-auto">
+            <h3 class="font-bold text-4xl mb-5">₹ 400</h3>
+            <h6 class="text-black font-semibold mb-3">Successfully added </h6>
+            <h6 class="text-gray-600 text-sm mb-3">TO</h6>
+            <h6 class="text-black font-medium mb-3">Your Budget</h6>
+        </div>
+        <div class="fixed w-full bottom-0 text-center">
+            <a href="{% url 'spending' %}" class="w-full block bg-violet-500 py-3 text-white">DONE</a>
+        </div>
     </div>
 {% endblock content %}

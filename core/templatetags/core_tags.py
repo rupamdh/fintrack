@@ -25,3 +25,7 @@ def get_date(value):
         return value.strftime('%H:%M')
     else:
         return value.strftime('%d-%m-%Y')
+    
+@register.filter(name='base_value')
+def get_base_value(value):
+    return round(value)

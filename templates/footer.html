@@ -3,7 +3,7 @@
         <ul class="flex justify-between items-center">
             {% with request.resolver_match.url_name as url %}
                 <li {% if url == 'home' %}class="active"{% endif %}><a href="{% url 'home' %}"><i class="fa-light fa-house"></i></a></li>
-                <li {% if url == 'spending' %}class="active"{% endif %}><a href="{% url 'spending' %}"><i class="fa-light fa-money-check-dollar-pen"></i> </a></li>
+                <li {% if url == 'spending' %}class="active"{% endif %}><a href="{% url 'spending' %}"><i class="fa-light fa-arrow-right-arrow-left"></i> </a></li>
                 <li class="add"><a href="{% url 'add-spending' %}"><i class="fa-light fa-plus"></i></a></li>
                 <li {% if url == 'budget' %}class="active"{% endif %}><a href="{% url 'budget' %}"><i class="fa-light fa-money-check-dollar-pen"></i></a></li>
                 <li><a href="#"><i class="fa-light fa-user"></i></a></li>
