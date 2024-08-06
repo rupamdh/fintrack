@@ -4,7 +4,10 @@
 {% block content %}
     <div class="px-4 pt-4">
         {% if today_spendings %}
-            <h3 class="text-xl font-semibold mb-4 text-gray-600">Today</h3>
+            <div class="flex bg-[#EEE5FF] justify-between items-center rounded-lg px-4 py-1 mb-3">
+                <h6 class="text-violet-700 text-lg font-medium">Today</h6>
+                <h6 class="text-xl text-violet-700 font-bold">₹ {{ total_spent_today|base_value }}</h6>
+            </div>
             {% for spending in today_spendings %}
                 <div class="flex justify-between bg-[#FCFCFC] py-3 px-4 rounded-2xl mb-3">
                     <div>
@@ -20,7 +23,10 @@
         {% endif %}
 
         {% if yes_spendings %}
-            <h3 class="text-xl font-semibold mb-4 text-gray-600">Yesterday</h3>
+            <div class="flex bg-[#EEE5FF] justify-between items-center rounded-lg px-4 py-1 mb-3">
+                <h6 class="text-violet-700 text-lg font-medium">Yesterday</h6>
+                <h6 class="text-xl text-violet-700 font-bold">₹ {{ total_spent_yesterday|base_value }}</h6>
+            </div>
             {% for spending in yes_spendings %}
                 <div class="flex justify-between bg-[#FCFCFC] py-3 px-4 rounded-2xl mb-3">
                     <div>
@@ -36,7 +42,10 @@
         {% endif %}
 
         {% if old_spendings %}
-            <h3 class="text-xl font-semibold mb-4 text-gray-600">Older</h3>
+            <div class="flex bg-[#EEE5FF] justify-between items-center rounded-lg px-4 py-1 mb-3">
+                <h6 class="text-violet-700 text-lg font-medium">Older</h6>
+                <!-- <h6 class="text-xl text-violet-700 font-bold">₹ {{ total_spent_yesterday|base_value }}</h6> -->
+            </div>
             {% for spending in old_spendings %}
                 <div class="flex justify-between bg-[#FCFCFC] py-3 px-4 rounded-2xl mb-3">
                     <div>

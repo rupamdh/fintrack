@@ -5,10 +5,11 @@ from django.contrib.auth import get_user_model
 from .forms import SpendingForm, BudgetAddForm
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta
+from .utils import *
 
 User = get_user_model()
 c_m = datetime.now().month
-yesterday = datetime.now() - timedelta(1)
+yesterday = datetime.now() - timedelta(days=1)
 
 # Create your views here.
 @login_required
@@ -56,8 +57,8 @@ def spending_add_success(request):
 
 @login_required
 def view_spendings(request):
-    today_spendings = Spending.objects.filter(user=request.user, created_at__date=datetime.today()).order_by('-created_at')
-    yes_spendings = Spending.objects.filter(user=request.user, created_at__date=yesterday).order_by('-created_at')
+    today_spendings = get_today_spendings(request)
+    yes_spendings = get_yesterday_spendings(request)
     old_spendings = Spending.objects.filter(user=request.user, created_at__date__lt=yesterday).order_by('-created_at')
     context = {
         'today_spendings' : today_spendings,
@@ -69,5 +70,14 @@ def view_spendings(request):
 @login_required
 def get_timely_expense(request):
     filter = request.POST.get('filter')
-    print(filter)
+    if filter == 'td':
+        spendings = get_today_spendings(request)
+        print(spendings)
+    elif filter == 'wk':
+        spendings = get_week_spendings(request)
+        print(spendings)
+    elif filter =='mn':
+        spendings = get_month_spendings(request)
+        print(spendings)
+    
     return JsonResponse({'success': True})
